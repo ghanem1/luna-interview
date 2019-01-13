@@ -1,0 +1,4 @@
+---
+ - name: Switch to docker under minikube
+   shell: eval $(sudo ~/kubernetes/minikube-linux-amd64 docker-env)
+

@@ -1,0 +1,27 @@
+---
+ - name: Install kvm2 Packages 
+   shell: sudo apt install libvirt-bin qemu-kvm
+
+ - name: Add user to libvirtd group
+   shell: sudo usermod -a -G libvirtd $(whoami) && newgrp libvirtd
+
+ - name: Install KVM2 Driver.
+   shell: curl -LO https://storage.googleapis.com/minikube/releases/v0.30.0/docker-machine-driver-kvm2 && sudo install docker-machine-driver-kvm2 /usr/local/bin/ && rm -f docker-machine-driver-kvm2
+
+ - name: Create kubernetes folder
+   file:
+    path: ~/kubernetes
+    state: directory
+
+ - name: Download minikube tool
+   shell:  cd ~/kubernetes && curl -LO https://github.com/kubernetes/minikube/releases/download/v0.32.0/minikube-linux-amd64 && chmod u+x minikube-linux-amd64
+
+ - name: Install kubectl
+   shell: sudo apt-get update && sudo apt-get install -y apt-transport-https \
+          && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - \
+          && echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list \
+          && sudo apt-get update \
+          && sudo apt-get install -y kubectl
+
+ - name: Deploy kubernetes locally 
+   shell: sudo  ~/kubernetes/minikube-linux-amd64 start --vm-driver kvm2

@@ -1,0 +1,5 @@
+---
+- include: ../../docker-eval/tasks/main.yml
+
+- name: build docker image 
+  shell: cd roles/build-nginx/s2i/nginx/ && docker build -t nginx .

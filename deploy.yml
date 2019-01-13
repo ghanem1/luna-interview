@@ -1,0 +1,10 @@
+- hosts: hosts
+  remote_user: ghanem.daghestani
+  roles:
+   - kuberenetes
+   - build-air-ports
+   - build-countries
+   - build-nginx 
+   - deploy-air-ports
+   - deploy-countries
+   - deploy-nginx  

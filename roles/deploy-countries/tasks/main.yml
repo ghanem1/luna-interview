@@ -1,0 +1,18 @@
+---
+- include: ../../docker-eval/tasks/main.yml
+
+- name: Create countries namespace
+  shell: sudo kubectl create namespace countries 
+  ignore_errors: yes
+
+- name: Create NetworkPolciy
+  shell: sudo kubectl create -f roles/deploy-countries/tasks/networkpolicy.yml -n countries
+  ignore_errors: yes
+
+- name: Trigger countries App deployment
+  shell: sudo kubectl run countries-assembly --image=countries-assembly:1.0.1 --port=8080 --image-pull-policy=Never -n countries
+  ignore_errors: yes
+
+- name: Create Service for Countries App Deployment 
+  shell: sudo kubectl expose deployment/countries-assembly -n countries
+  ignore_errors: yes
