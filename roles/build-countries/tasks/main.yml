@@ -1,5 +1,3 @@
 ---
-- include: ../../docker-eval/tasks/main.yml
-
 - name: build docker image 
   shell: cd roles/build-countries/s2i/countries-assembly/ && docker build -t countries-assembly:1.0.1 .

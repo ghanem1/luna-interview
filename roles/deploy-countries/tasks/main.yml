@@ -1,6 +1,4 @@
 ---
-- include: ../../docker-eval/tasks/main.yml
-
 - name: Create countries namespace
   shell: sudo kubectl create namespace countries 
   ignore_errors: yes

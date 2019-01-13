@@ -1,6 +1,4 @@
 ---
-- include: ../../docker-eval/tasks/main.yml
-
 - name: Create airports namespace
   shell: sudo kubectl create namespace airports 
   ignore_errors: yes
