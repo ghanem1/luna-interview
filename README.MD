@@ -20,7 +20,7 @@
   2. Naviage to the downloaded folder and trigger the playbook 
      ```
        cd luna-interview/
-       eval $(sudo ../kubernetes/minikube-linux-amd64 docker-env) && ansible-playbook -i Inventory deploy.yml  
+       ansible-playbook -i Inventory deploy.yml  
      ```
    3. Once the playbook execution gets completed, nginx sevice should have an externalIP than can be used to forward 
       the requests to provided services. (As it is local machine, there is no real public IP. So we are just relying 
