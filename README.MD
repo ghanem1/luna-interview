@@ -1,9 +1,5 @@
-**prerequisites:**
-  - Ubuntu 16.04 64bit
-  - Recent version of ansible installed.
-  - Passwordless execution of sudo commands.
-
-**This playbooks helps to run the whole stack using one command as the following:**
+# Introduction:
+Stack of Kubernetes, Java Applications and Nginx that is deployed and run locally. Playbook in this repo is responsible for the following:
   1. Deploy Kubernetes Cluster on a local machine. (This include minikube and kubectl tools)
   2. Build airports-assembly Docker Image.
   3. Build countries-assembly Docker Image.
@@ -12,6 +8,11 @@
   6. Create NameSpace and trigger deployment for countries-assembly.
   7. Create NameSpace and trigger deployment for nginx and expose the service on externalIP
 
+**Prerequisites:**
+  - Ubuntu 16.04 64bit
+  - Recent version of ansible installed.
+  - Passwordless execution of sudo commands.
+  
 **To Deploy the stack on a local machine:**
   1. Pull this repo into the local machine.
      ```
